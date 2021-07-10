@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 import Home from "./Pages/Home/Home";
 
-import { getUsers } from "./services";
+import { getUsers, postNewPost } from "./services";
 
 import { addLoadedData } from "./redux/users/usersSlice";
 
@@ -11,19 +11,25 @@ const App = () => {
   const stateUsers = useSelector((state) => state.users.value);
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const users = await getUsers();
+  const fetchData = async (dispatch, addLoadedData, stateUsers) => {
+    try {
+      const response = await getUsers();
+      const users = response.data;
       if (stateUsers.length === 0 && users.length !== 0) {
         dispatch(addLoadedData(users));
       }
-    };
-    fetchData();
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchData(dispatch, addLoadedData, stateUsers);
   });
 
   return (
     <div className="App">
-      <Home />
+      <Home submitNewPost={submitNewPost} />
     </div>
   );
 };
