@@ -24,9 +24,7 @@ const Home = () => {
         />
         <UserPosition
           markerData={
-            geo
-              ? { lat: parseFloat(geo.lat), lng: parseFloat(geo.lng) }
-              : undefined
+            geo && { lat: parseFloat(geo.lat), lng: parseFloat(geo.lng) }
           }
         />
       </main>
