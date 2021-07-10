@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   title: "jo",
-  post: "ko",
+  body: "ko",
 };
 
 const postSlice = createSlice({
