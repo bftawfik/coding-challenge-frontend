@@ -1,13 +1,26 @@
 import React from "react";
 
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { changeSelectedUser } from "../../redux/users/usersSlice";
+import UserList from "../../Components/UserList/UserList";
 
 const Home = () => {
-  const users = useSelector((state) => state.users.value);
-  console.log(users);
+  const dispatch = useDispatch();
+
+  const stateUsers = useSelector((state) => state.users.value);
+  const stateSelectedUser = useSelector((state) => state.users.selected);
+  
   return (
     <div>
-      Home
+      <header>Home header</header>
+      <main>
+        <UserList
+          users={stateUsers}
+          selectedUser={stateSelectedUser}
+          changeUser={(user) => dispatch(changeSelectedUser(user))}
+        />
+      </main>
+      <footer>Home footer</footer>
     </div>
   );
 };
