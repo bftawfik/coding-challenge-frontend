@@ -24,20 +24,15 @@ const App = () => {
   };
 
   const submitNewPost = async (e, postTitle, postBody, stateSelectedUser) => {
-    e.preventDefault();
-    if (!stateSelectedUser) {
-      console.log("Please select a user");
-    } else {
-      try {
-        const response = await postNewPost(
-          postTitle,
-          postBody,
-          stateSelectedUser.id
-        );
-        console.log(response);
-      } catch (error) {
-        console.error(error.response);
-      }
+    try {
+      const response = await postNewPost(
+        postTitle,
+        postBody,
+        stateSelectedUser.id
+      );
+      console.log(response);
+    } catch (error) {
+      console.error(error.response);
     }
   };
 
