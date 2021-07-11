@@ -8,7 +8,7 @@ import UserPosition from "../../Components/UserPosition/UserPosition";
 import NewPost from "../../Components/NewPost/NewPost";
 
 import { changeSelectedUser } from "../../redux/users/usersSlice";
-import { changePostData } from "../../redux/post/postSlice";
+import { changePostData, resetPostData } from "../../redux/post/postSlice";
 
 import classes from "./Home.module.scss";
 
@@ -95,9 +95,9 @@ const Home = ({ submitNewPost }) => {
           post={post}
           onSubmit={(e) => {
             e.preventDefault();
-            console.log("99");
             if (validateFormData()) {
               submitNewPost(e, post.title, post.body, users.selected);
+              dispatch(resetPostData());
             }
           }}
         />

@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  title: "jo",
-  body: "ko",
+  title: "",
+  body: "",
 };
 
 const postSlice = createSlice({
@@ -13,8 +13,12 @@ const postSlice = createSlice({
       const { label, value } = action.payload;
       state[label] = value;
     },
+    resetPostData: (state) => {
+      state.title = "";
+      state.body = "";
+    },
   },
 });
 
-export const { changePostData } = postSlice.actions;
+export const { changePostData, resetPostData } = postSlice.actions;
 export default postSlice.reducer;

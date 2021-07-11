@@ -23,13 +23,12 @@ const FormControl = ({ type, label, alias, value, onDataChange, classes }) => {
           <label for={label}>{alias || label}:</label>
           <textarea
             id={label}
+            value={value}
             onChange={(e) => {
               onDataChange({ label, value: e.target.value });
             }}
             required
-          >
-            {value}
-          </textarea>
+          />
         </div>
       );
     case "submit":

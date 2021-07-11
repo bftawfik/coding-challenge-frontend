@@ -30,9 +30,9 @@ const App = () => {
         postBody,
         stateSelectedUser.id
       );
-      console.log(response);
+      // console.log(response);
     } catch (error) {
-      console.error(error.response);
+      // console.error(error.response);
     }
   };
 

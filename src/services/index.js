@@ -7,15 +7,11 @@ const getUsers = async () => {
 };
 
 const postNewPost = async (title, body, userId) => {
-  return await axios
-    .post(`${domainUrl}/posts`, {
-      title: title,
-      body: body,
-      userId: userId,
-    })
-    .then(function (response) {
-      console.log(response);
-    });
+  return await axios.post(`${domainUrl}/posts`, {
+    title: title,
+    body: body,
+    userId: userId,
+  });
 };
 
 export { getUsers, postNewPost };

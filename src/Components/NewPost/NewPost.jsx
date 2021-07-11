@@ -24,7 +24,7 @@ const NewPost = ({
             label={label}
             alias={alias}
             value={post[label]}
-            onDataChange={post[label] && onDataChange}
+            onDataChange={onDataChange}
             classes={classes}
           />
         ))}
