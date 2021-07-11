@@ -6,11 +6,15 @@ import {
   Marker,
 } from "react-google-maps";
 
+import classes from "./UserPosition.module.scss";
+
 const defaultProps = {
   googleMapURL:
     "https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places",
   loadingElement: <div style={{ height: `100%` }} />,
-  containerElement: <div style={{ height: `400px` }} />,
+  containerElement: (
+    <div className={classes.UserPosition} style={{ height: `400px` }} />
+  ),
   mapElement: <div style={{ height: `100%` }} />,
   defaultCenter: { lat: -34.397, lng: 150.644 },
   defaultZoom: 3,

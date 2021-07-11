@@ -1,0 +1,10 @@
+.UserPosition {
+  width: calc(50% - 8px);
+  max-width: calc(50% - 8px);
+  min-width: calc(50% - 8px);
+  @media screen and(max-width: 640px) {
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+  }
+}
