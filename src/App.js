@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { ToastContainer, toast } from "react-toastify";
 
 import Home from "./Pages/Home/Home";
 
@@ -7,9 +8,13 @@ import { getUsers, postNewPost } from "./services";
 
 import { addLoadedData } from "./redux/users/usersSlice";
 
+import "react-toastify/dist/ReactToastify.css";
+
 const App = () => {
   const stateUsers = useSelector((state) => state.users.value);
   const dispatch = useDispatch();
+
+  const notify = (msg) => toast(msg);
 
   const fetchData = async (dispatch, addLoadedData, stateUsers) => {
     try {
@@ -30,8 +35,11 @@ const App = () => {
         postBody,
         stateSelectedUser.id
       );
+
+      notify("Successfully added a new post !");
       // console.log(response);
     } catch (error) {
+      notify("Somthing went wrong !");
       // console.error(error.response);
     }
   };
@@ -42,6 +50,7 @@ const App = () => {
 
   return (
     <div className="App">
+      <ToastContainer />
       <Home submitNewPost={submitNewPost} />
     </div>
   );
