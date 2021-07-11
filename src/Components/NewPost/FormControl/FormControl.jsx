@@ -1,10 +1,10 @@
 import React from "react";
 
-const FormControl = ({ type, label, alias, value, onDataChange }) => {
+const FormControl = ({ type, label, alias, value, onDataChange, classes }) => {
   switch (type) {
     case "input":
       return (
-        <div>
+        <div className={classes.FormControl}>
           <label for={label}>{alias || label}:</label>
           <input
             id={label}
@@ -19,7 +19,7 @@ const FormControl = ({ type, label, alias, value, onDataChange }) => {
       );
     case "textarea":
       return (
-        <div>
+        <div className={classes.FormControl}>
           <label for={label}>{alias || label}:</label>
           <textarea
             id={label}
@@ -33,9 +33,17 @@ const FormControl = ({ type, label, alias, value, onDataChange }) => {
         </div>
       );
     case "submit":
-      return <button type="submit">{label}</button>;
+      return (
+        <div className={classes.FormControl}>
+          <button type="submit">{label}</button>
+        </div>
+      );
     default:
-      return <button>{label}</button>;
+      return (
+        <div className={classes.FormControl}>
+          <button>{label}</button>
+        </div>
+      );
   }
 };
 

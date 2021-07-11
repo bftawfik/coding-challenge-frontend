@@ -1,0 +1,65 @@
+@import "../../SharedScss/variables";
+
+.NewPost {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 50px $web-side-space;
+  padding: 20px $web-side-space 20px;
+  box-shadow: 0 0 10px -6px $clr-002;
+  border-radius: 15px;
+  h2 {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    margin: 0;
+    height: 50px;
+  }
+  .validationMsgs {
+    font-weight: bold;
+    color: $clr-003;
+    font-size: 24px;
+    font-style: oblique;
+    margin-bottom: 10px;
+  }
+  .controlsContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 600px;
+    .FormControl {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 20px;
+      label {
+        font-size: 18px;
+        text-transform: capitalize;
+        font-weight: bold;
+      }
+      input,
+      textarea {
+        border: 1px solid #999999;
+        font-size: 16px;
+        background-color: #eeeeee;
+        padding: 20px 20px;
+        border-radius: 15px;
+        &:focus {
+          outline: none;
+          border: 1px solid #000000;
+        }
+      }
+      textarea {
+        resize: vertical;
+      }
+      button {
+        background-color: $clr-003;
+        border: 0;
+        border-radius: 15px;
+        font-size: 20px;
+        padding: 20px 20px;
+        text-transform: uppercase;
+        font-weight: bold;
+      }
+    }
+  }
+}
