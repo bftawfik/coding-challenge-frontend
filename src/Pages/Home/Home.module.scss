@@ -1,0 +1,56 @@
+@import "../../SharedScss/variables";
+
+.Home {
+  display: flex;
+  flex-direction: column;
+  font-family: $font-family;
+  .header,
+  .footer {
+    background-color: $clr-001;
+    box-shadow: 0 0 10px -6px $clr-002;
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    .container {
+      padding: 0 $web-side-space;
+      .headerRow {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 50px;
+      }
+    }
+  }
+  .footer p {
+    display: flex;
+    justify-content: center;
+    font-size: 12px;
+    a {
+      color: inherit;
+      margin: 0 3px;
+    }
+  }
+
+  .pageRow {
+    display: flex;
+    flex-direction: column;
+    margin: 50px $web-side-space 0;
+    padding: 20px $web-side-space 20px;
+    // border: 1px solid #333333;
+    box-shadow: 0 0 10px -6px $clr-002;
+    border-radius: 15px;
+    h2 {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      margin: 0;
+      height: 50px;
+    }
+    .sectionRow {
+      display: flex;
+      @media screen and(max-width: 640px) {
+        flex-direction: column;
+      }
+    }
+  }
+}

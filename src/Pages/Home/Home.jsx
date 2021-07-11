@@ -1,11 +1,16 @@
 import React, { useState } from "react";
 
 import { useSelector, useDispatch } from "react-redux";
-import { changeSelectedUser } from "../../redux/users/usersSlice";
-import { changePostData } from "../../redux/post/postSlice";
+
+import FulscrnWrpr from "../../Components/FulscrnWrpr/FulscrnWrpr";
 import UserList from "../../Components/UserList/UserList";
 import UserPosition from "../../Components/UserPosition/UserPosition";
 import NewPost from "../../Components/NewPost/NewPost";
+
+import { changeSelectedUser } from "../../redux/users/usersSlice";
+import { changePostData } from "../../redux/post/postSlice";
+
+import classes from "./Home.module.scss";
 
 const Home = ({ submitNewPost }) => {
   const [msgId, setMmsgId] = useState(-1);
@@ -55,19 +60,31 @@ const Home = ({ submitNewPost }) => {
   };
 
   return (
-    <div>
-      <header>Home header</header>
-      <main>
-        <UserList
-          users={users.value}
-          selectedUser={users.selected}
-          changeUser={(user) => dispatch(changeSelectedUser(user))}
-        />
-        <UserPosition
-          markerData={
-            geo && { lat: parseFloat(geo.lat), lng: parseFloat(geo.lng) }
-          }
-        />
+    <div className={classes.Home}>
+      <FulscrnWrpr
+        className={classes.header}
+        containerClassName={classes.container}
+      >
+        <h1 className={classes.headerRow}>
+          AdMyBrand Coding Challenge for Front-End
+        </h1>
+      </FulscrnWrpr>
+      <FulscrnWrpr>
+        <div className={classes.pageRow}>
+          <h2 className={classes.sectionRow}>Users List</h2>
+          <div className={classes.sectionRow}>
+            <UserList
+              users={users.value}
+              selectedUser={users.selected}
+              changeUser={(user) => dispatch(changeSelectedUser(user))}
+            />
+            <UserPosition
+              markerData={
+                geo && { lat: parseFloat(geo.lat), lng: parseFloat(geo.lng) }
+              }
+            />
+          </div>
+        </div>
         <NewPost
           newPostFields={newPostFields}
           validationMsgs={validationMsgs}
@@ -84,8 +101,23 @@ const Home = ({ submitNewPost }) => {
             }
           }}
         />
-      </main>
-      <footer>Home footer</footer>
+      </FulscrnWrpr>
+      <FulscrnWrpr
+        className={classes.footer}
+        containerClassName={classes.container}
+      >
+        <p>
+          Copyright © 2021{" "}
+          <a
+            href="https://bftawfik.github.io/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            bftawfik.github.io
+          </a>{" "}
+          All rights reserved
+        </p>
+      </FulscrnWrpr>
     </div>
   );
 };
