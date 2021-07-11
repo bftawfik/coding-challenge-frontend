@@ -1,25 +1,17 @@
 import FormControl from "./FormControl/FormControl";
 
-const newPostFields = [
-  {
-    type: "input",
-    label: "title",
-  },
-  {
-    type: "input",
-    label: "body",
-    alias: "post"
-  },
-  {
-    type: "submit",
-    label: "submit",
-  },
-];
-
-const NewPost = ({ onDataChange, post, onSubmit }) => {
+const NewPost = ({
+  newPostFields,
+  validationMsgs,
+  msgId,
+  onDataChange,
+  post,
+  onSubmit,
+}) => {
   return (
     <form onSubmit={onSubmit}>
       NewPost
+      <div>{validationMsgs[msgId]}</div>
       {newPostFields.map(({ type, label, alias }, ndx) => (
         <FormControl
           key={ndx}
